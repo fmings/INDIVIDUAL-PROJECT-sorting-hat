@@ -8,8 +8,24 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="card" id="welcome-card-container"></div>
-  <div class="form-container"></div>
+  <div class="card" id="welcome-card-container">
+    <div class="card" id="welcomeCard">
+      <div class="card-body">
+        <h5 class="card-title">Welcome to the Sorting Hat's Sorting House!</h5>
+        <p class="card-text">Click below to start the sorting process</p>
+        <a href="#" class="btn btn-primary" id="start-sorting-btn">deligitor prodeas</a>
+      </div>
+    </div>
+  </div>
+  <div class="form-container" id="form-div">
+    <form>
+      <div class="mb-3">
+        <label for="name-input" class="form-label">Enter Your Name:</label>
+        <input type="text" class="form-control" id="name-input" aria-describedby="emailHelp">
+      </div>
+      <div><button type="submit" class="btn btn-primary" id="submitbutton">Submit</button></div>
+  </form>
+  </div>
   <div class="filter-container"></div>
   <div class="card-container" id="card-container"></div>
 
