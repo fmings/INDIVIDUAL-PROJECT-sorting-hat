@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Sorting Hat</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="card" id="welcome-card-container">
-    <div class="card" id="welcomeCard">
-      <div class="card-body">
-        <h5 class="card-title">Welcome to the Sorting Hat's Sorting House!</h5>
-        <p class="card-text">Click below to start the sorting process</p>
+  <div class="welcome-card" id="welcome-card-container">
+    <div class="welcome-card" id="welcomeCard">
+      <div class="welcome-card-body">
+        <h5 class="welcome-card-title">Welcome to the Sorting Hat's Sorting House!</h5>
+        <p class="welcome-card-text">click below to start the sorting process</p>
         <a href="#" class="btn btn-primary" id="start-sorting-btn">deligitor prodeas</a>
       </div>
     </div>
@@ -21,7 +30,7 @@
     <form>
       <div class="mb-3">
         <label for="name-input" class="form-label">Enter Your Name:</label>
-        <input type="text" class="form-control" id="name-input" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="name-input" aria-describedby="emailHelp" required>
       </div>
       <div><button type="submit" class="btn btn-primary" id="submitbutton">Let's Sort!</button></div>
   </form>
@@ -33,9 +42,17 @@
     <button class="filter-button" id="ravenclaw-filter">Ravenclaw</button>
     <button class="filter-button" id="slytherin-filter">Slytherin</button>
   </div>
-  <div class="card-container" id="card-container">
+  <div class="all-card-container">
+    <div id="good-people-container">
+      <h3 class="segment-header" id="first-year-header">First Year Students</h3>
+      <div class="card-container" id="card-container"></div>
+    </div>
+    <div id="bad-people-container">
+      <h3 class="segment-header" id="voldy-header">The Army of Voldemort</h3>
+      <div class="voldemort-container" id="voldemort-container">
+      </div>
+    </div>
   </div>
-  <div class="voldemort-container" id="voldemort-container"></div>
 
   
   <script src="main.js"></script>
