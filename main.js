@@ -11,13 +11,7 @@ const dataList = [
   nonexpelled: true
 }]
 
-const voldyArmy = [
-  // {
-  //   id: "Snape",
-  //   house: "Slytherin",
-  //   nonexpelled: true
-  // }
-];
+const voldyArmy = [];
 
 //function used to render content to the DOM
 const renderToDom = (divId, htmlToRender) => {
@@ -29,32 +23,32 @@ const renderToDom = (divId, htmlToRender) => {
 //function for rendering the object/sorting cards
 const cardsOnDom = (array) => {
   let domString = "";
-  for (const member of array) {
+  array.forEach((member) => {
     domString += 
-    `<div class="card" style="width: 18rem;">
+    `<div class="card" id="house-card" style="width: 18rem;">
       <div class="card-color-segment" id="card-color-${member.house}"></div>
-      <div class="card-body">
-        <h5 class="card-title">${member.name}</h5>
-        <p class="card-text">${member.house}</p>
+      <div class="card-body" id="house-card-body">
+        <h5 class="card-title" id="house-card-title">${member.name}</h5>
+        <p class="card-text" id="house-card-house">${member.house}</p>
         <a href="#" class="btn btn-primary" id="expel--${member.id}">Expel</a>
       </div>
     </div>`
-  };
+  })
   renderToDom("#card-container",domString)
 }
 
 const voldyOnDom = (array) => {
   let domString = "";
-  for (const member of array) {
+  array.forEach((member) => {
     domString += 
-    `<div class="card" style="width: 18rem;">
-      <div class="card-color-segment" id="card-color-${member.house}"></div>
-      <div class="card-body">
-        <p class="card-text">${member.name} went to the dark side!</p>
-        <a href="#" class="btn btn-primary" id="expel--${member.id}">Expel</a>
+    `<div class="card" id="voldemort-card" style="width: 18rem;">
+      <div class="card-color-segment" id="card-color-voldemort"></div>
+      <div class="card-body" id="house-card-body">
+        <h5 class="card-title" id="house-card-title">${member.name} moved to the dark side!</h5>
+        <p id="expelled">EXPELLED</p>
       </div>
     </div>`
-  };
+  })
   renderToDom("#voldemort-container",domString)
 }
 
@@ -66,12 +60,21 @@ function showForm() {
   const showForm = document.querySelector("#form-div").style.display = "block"
 }
 
+//variable to hide the filter buttons until button click
+const hiddenFilter = document.querySelector(".filter-container").style.display = "none";
+
+//function to show the filter buttons once button is clicked
+function showFilter() {
+  const filterButtons = document.querySelector(".filter-container").style.display = "flex";
+}
+
 //query and function to make the button work/to show the form
 const entryButtonEl = document.querySelector("#start-sorting-btn");
 
 entryButtonEl.addEventListener("click", () => {
   console.log("button clicked");
-  showForm(); 
+  showForm();
+  
 })
 
 const form = document.querySelector("form")
@@ -93,7 +96,9 @@ const createCard = (e) => {
     nonexpelled: true 
   };
   dataList.push(newSortObject);
+  console.log(newSortObject)
   cardsOnDom(dataList);
+  showFilter(); 
   form.reset();
 }
 
@@ -132,11 +137,12 @@ const cards = document.querySelector("#card-container");
 cards.addEventListener("click", (e) => {
   console.log("delete")
   if (e.target.id.includes("expel")) {
-    const [elem, id] = e.target.id.split("--");
+    const [ , id] = e.target.id.split("--");
 
     const index = dataList.findIndex((e) => e.id === Number(id)); 
     voldyArmy.push(dataList[index])
     dataList.splice(index,1);
+    console.log(index)
     console.log(voldyArmy)
   }
   cardsOnDom(dataList)
