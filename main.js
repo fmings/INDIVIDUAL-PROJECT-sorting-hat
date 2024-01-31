@@ -11,6 +11,14 @@ const dataList = [
   nonexpelled: true
 }]
 
+const voldyArmy = [
+  // {
+  //   id: "Snape",
+  //   house: "Slytherin",
+  //   nonexpelled: true
+  // }
+];
+
 //function used to render content to the DOM
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -28,11 +36,26 @@ const cardsOnDom = (array) => {
       <div class="card-body">
         <h5 class="card-title">${member.name}</h5>
         <p class="card-text">${member.house}</p>
-        <a href="#" class="btn btn-primary">Expel</a>
+        <a href="#" class="btn btn-primary" id="expel--${member.id}">Expel</a>
       </div>
     </div>`
   };
   renderToDom("#card-container",domString)
+}
+
+const voldyOnDom = (array) => {
+  let domString = "";
+  for (const member of array) {
+    domString += 
+    `<div class="card" style="width: 18rem;">
+      <div class="card-color-segment" id="card-color-${member.house}"></div>
+      <div class="card-body">
+        <p class="card-text">${member.name} went to the dark side!</p>
+        <a href="#" class="btn btn-primary" id="expel--${member.id}">Expel</a>
+      </div>
+    </div>`
+  };
+  renderToDom("#voldemort-container",domString)
 }
 
 //variable to hide the form until button click
@@ -52,12 +75,6 @@ entryButtonEl.addEventListener("click", () => {
 })
 
 const form = document.querySelector("form")
-
-//() => {
-  //return dataList.map((e) => (dataList.type === "Ravenclaw"))
-//})
-
-//const ravenclawHouse = () => dataList.map((e) => (dataList.house === "Ravenclaw"))
 
 function random() {
     const randomHouse = Math.floor(Math.random()*houseArray.length);
@@ -83,7 +100,7 @@ const createCard = (e) => {
 form.addEventListener("submit", createCard)
 
 
-
+//filter function to filter houses
 const houseFilter = (event) => {
   if(event.target.id.includes('gryffindor-filter')) {
     const gryffindor = dataList.filter(item => item.house === "Gryffindor")
@@ -102,9 +119,30 @@ const houseFilter = (event) => {
     const slytherin = dataList.filter(item => item.house === "Slytherin")
     cardsOnDom(slytherin)
   }
+  if(event.target.id.includes('all-filter')){
+    cardsOnDom(dataList)
+  }
 }
 
+//query selector to make filter buttons work
 document.querySelector(".filter-container").addEventListener("click", houseFilter)
+
+const cards = document.querySelector("#card-container");
+
+cards.addEventListener("click", (e) => {
+  console.log("delete")
+  if (e.target.id.includes("expel")) {
+    const [elem, id] = e.target.id.split("--");
+
+    const index = dataList.findIndex((e) => e.id === Number(id)); 
+    voldyArmy.push(dataList[index])
+    dataList.splice(index,1);
+    console.log(voldyArmy)
+  }
+  cardsOnDom(dataList)
+  voldyOnDom(voldyArmy)
+  
+})
 //const startApp = () => {
   //welcomeCardOnDom()
 //}
