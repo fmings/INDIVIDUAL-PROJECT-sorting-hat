@@ -191,3 +191,19 @@ form {
   color:lightgray;
   margin: 10px auto 5px auto;
 }
+
+#expelled {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #ae0001;
+  border: none;
+  padding: 7px 15px;
+}
+.btn-primary:hover {
+  background-color: #eb1c1c;
+}
+.btn-primary:active {
+  background-color: #d11212 !important;
+}
