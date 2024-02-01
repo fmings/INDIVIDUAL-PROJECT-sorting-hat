@@ -1,3 +1,32 @@
+# This is the name of my Project  [![Netlify Status](https://api.netlify.com/api/v1/badges/917594f9-470e-47e6-af67-789c64bc1541/deploy-status)](https://app.netlify.com/sites/sorting-hat-project-fm/deploys)
+
+This project is the first individual student assessment for Nashville Software School. I created a Sorting Hat web page that includes a welcome page, a form to enter your name, a sorting function, filter functions and deleting/expelling functions.
+
+[View App](https://sorting-hat-project-fm.netlify.app/#)
+
+## About the User 
+- The ideal user is a Harry Potter Fanatic
+- This person has some extra time on their hands and wants to see what Harry Potter house they would be sorted into 
+- The problem this app solves is a lack of entertainment. This app provides something to do while feeding the need of being engulfed in the Harry Potter fantasy world
+
+## Features 
+- When entering the site, a form field will populate to allow individual to enter a name
+- When a name is entered, clicking the button will sort the object into a house and push the object into an array of students that then prints to the DOM
+- Each student object is assigned a color based on which house they are sorted into
+- The student cards are sorted by name
+- The filter buttons allow you to filter to students in the respective houses
+- When a student is "expelled," they are moved to a separate container a.k.a. The Army of Voldemort and their card style changes
+
+## Video Walkthrough of APP NAME
+https://www.loom.com/share/2421913d68ca462cadb687a996e1c4e8?sid=44adafa4-3726-4c7d-ad07-3d977bc0be18
+
+
+## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
+<img width="1148" alt="Web App" src="./images/sorting-hat-screenshot.png">
+
+## Contributors
+- [Felicia Mings](https://github.com/fmings)
+
 # Sorting Hat
 
 ## Goals
@@ -54,4 +83,3 @@ Think of a way you can expel students without just hiding those divs on the page
 ## Optional Bonus
 - House Colors: The color of the student's card changes depending on which house they were sorted.
 - Card Sorting/Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-

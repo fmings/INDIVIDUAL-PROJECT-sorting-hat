@@ -141,6 +141,13 @@ form {
   padding-top: 15px;
 }
 
+.card-container, .voldemort-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 #first-year-header {
   font-family: 'Bigelow Rules', serif;
   font-size: 50px;
