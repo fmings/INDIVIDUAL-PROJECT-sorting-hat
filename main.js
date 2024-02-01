@@ -30,7 +30,7 @@ const cardsOnDom = (array) => {
       <div class="card-body" id="house-card-body">
         <h5 class="card-title" id="house-card-title">${member.name}</h5>
         <p class="card-text" id="house-card-house">${member.house}</p>
-        <a href="#" class="btn btn-primary" id="expel--${member.id}">Expel</a>
+        <a href="#" class="btn btn-primary" id="expel-button expel--${member.id}">Expel</a>
       </div>
     </div>`
   })
@@ -61,11 +61,11 @@ function showForm() {
 }
 
 //variable to hide the filter buttons until button click
-const hiddenFilter = document.querySelector(".filter-container").style.display = "none";
+const hiddenFilter = document.querySelector(".hidden-container").style.display = "none";
 
 //function to show the filter buttons once button is clicked
 function showFilter() {
-  const filterButtons = document.querySelector(".filter-container").style.display = "flex";
+  const filterButtons = document.querySelector(".hidden-container").style.display = "block";
 }
 
 //query and function to make the button work/to show the form
@@ -97,7 +97,17 @@ const createCard = (e) => {
   };
   dataList.push(newSortObject);
   console.log(newSortObject)
-  cardsOnDom(dataList);
+  cardsOnDom(dataList.sort(function(a, b) {
+    console.log(a.name)
+    console.log(b.name)
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }));
   showFilter(); 
   form.reset();
 }
@@ -149,8 +159,3 @@ cards.addEventListener("click", (e) => {
   voldyOnDom(voldyArmy)
   
 })
-//const startApp = () => {
-  //welcomeCardOnDom()
-//}
-
-//startApp();
